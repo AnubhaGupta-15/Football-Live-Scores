@@ -1,0 +1,18 @@
+.btn-pTool{
+    margin:0;
+    padding:0;
+    background:url("pexels-photo-3886263.jpeg") no-repeat; 
+            }
+
+.btn-pToolName{
+    text-align: center; 
+    width: 26px; 
+    height: 190px; 
+    display: block; 
+    color: rgb(196, 54, 200); 
+    text-decoration: none;  
+    font-family: Arial, Helvetica, sans-serif;  
+    font-weight: bold; 
+    font-size: 1em; 
+    line-height: 32px; 
+}

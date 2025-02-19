@@ -1,0 +1,70 @@
+<html lang="en">
+      <head>
+        <link rel="stylesheet" type="text/css" href="/style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous"
+      />
+      <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        crossorigin="anonymous"
+      />
+        <title>User Settings</title>
+      </head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbar"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" id="home" href="/">Home</a>
+        <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
+        <a class="nav-item nav-link" id="displayTeams" href="/displayTeams">Team Fixtures</a>
+        <a class="nav-item nav-link" id="standing" href = "/standings">Live fixtures</a>
+      </div>
+    </div>
+  </nav>
+
+
+<form method="post" action="{{ url_for('updateUser') }}">
+    <br/>
+    <br/>
+    <h3 align = "centre" >Your Settings</h3>
+    <div class = "form-group" >
+        <label for = "email">Email Address</label>
+        <input type = "email" class = "form-control" id = "email" name = "email" placeholder="Enter email" value={{email}}>
+    </div>
+    <div class = "form-group">
+        <label for = "firstName">First Name</label>
+        <input type = "text" class = "form-control" id = "firstname" name = "name" placeholder="Enter firstname" value={{name}}>
+    </div>
+    <div class = "form-group">
+        <label for = "password1">Password</label>
+        <input class = "form-control" id = "password" name = "password" placeholder="Enter first password" value={{password}}>
+    </div>  
+    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <br/>
+    <button type = "submit" class = "btn btn-primary" id="registerbutton">Update</button>
+</form>
+
+
+<form method="post" action="{{ url_for('deleteUser') }}">
+    <button type = "submit" class = "btn btn-primary" id="registerbutton">Delete</button>
+</form>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block title %}Signup{% endblock %}
+{% block content%}
+<form action = "{{url_for('favourite')}}" method = "POST">
+    <br/>
+    <br/>
+    <h3 align = "centre">Favourite Team</h3>
+    <div class = "form-group">
+        <label for = "favourite team">Favourite Team</label>
+        <input type = "text" class = "form-control" id = "favourite team" name = "favourite team" placeholder="Enter favourite team from the premier league">
+    </div>
+    <br/>
+    <button type = "submit" class = "btn btn-primary">Submit</button>
+</form>
+{% endblock %}

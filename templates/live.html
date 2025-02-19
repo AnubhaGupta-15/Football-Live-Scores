@@ -1,0 +1,54 @@
+<html lang="en">
+      <head>
+        <link rel="stylesheet" type="text/css" href="/style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous"
+      />
+      <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        crossorigin="anonymous"
+      />
+        <title>User Settings</title>
+      </head>
+
+      <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbar"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link" id="home" href="/">Home</a>
+              <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
+              <a class="nav-item nav-link" id="displayTeams" href="/displayTeams">Team Fixtures</a>
+              <a class="nav-item nav-link" id="UserSettings" href="/Settings">User Settings</a>
+              <a class="nav-item nav-link" id="standing" href = "/standings">Live fixtures</a>
+            </div>
+          </div>
+        </nav>
+<div id="wg-api-football-livescore"
+     data-host="api-football-v1.p.rapidapi.com"
+     data-refresh="60"
+     data-key="5fc0b966aemshb8b219e87ae9195p168187jsn3ead3b8ff38f"
+     data-theme=""
+     data-show-errors="false"
+     class="api_football_loader">
+</div>
+<script
+    type="module"
+    src="https://widgets.api-sports.io/football/1.1.8/widget.js">
+</script>
+</body>
