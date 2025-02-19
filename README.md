@@ -1,38 +1,118 @@
-# FOOTBALL API FIXTURES⚽
-The website allows you to watch live football matches from your favourite Premier League clubs.
+# **FOOTBALL LIVE SCORES⚽**
 
-## Table of contents
+## **📌 Project Overview**
+This website displays **live fixtures** for users' favorite football teams in the **Premier League**.
 
-[About](#About "Goto About")
+---
 
+## **📂 Table of Contents**
+- [About](#about)
+- [Working](#working)
+- [Guide to Run WebApp](#guide-to-run-webapp)
+- [References](#references)
 
-[Working](#Working )
-      
-  
+---
 
-## About 
-  
- We designed a web application for this project that takes the user's favourite soccer teams and links them to an external API to get the appropriate fixtures. This web app was created to look and work like soccer apps like the Barclays Premier League app. The football API from the rapid API website was used in this case.
+## **📜 About**
+We designed a **web application** that allows users to select their favorite football teams and fetches **live match fixtures** using an **external API**. This web app is inspired by popular soccer apps like the **Barclays Premier League app**.
 
+### **🔹 Technologies Used**
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Flask (Python)
+- **Database:** MySQL (Google Cloud)
+- **API:** Football API from RapidAPI
+- **Hosting & Deployment:** Google Kubernetes Engine (GKE)
 
-## Working
- 
-The web app operates as follows: the user is first led to a home page with three pages shown in the navigation bar. A user will register on the Signup page. Multiple forms on the signup page collect information such as a user's name, email address, and password.
+---
 
-This information is transmitted to a MYSQL database stored on Google Cloud once it is submitted. The data base will return a single int that reflects the user's id. On the same page, there is a dropdown menu from which a user can choose their favourite team.
-This information is also saved in the MYSQL cloud. The user is directed to the login page after completing the registration process. The login page operates as follows: the user's email address and password are entered.
+## **⚙️ Working**
+### **1️⃣ Home Page & Signup**
+- The home page contains navigation to different sections.
+- Users **register** on the **Signup page**, providing details like **name, email, and password**.
+- The data is **stored in MySQL** on **Google Cloud**.
+- Users select their **favorite team** from a dropdown list, which is also stored in the database.
 
-This email and password are then compared to the user and password in the Google Cloud database. The user will be successfully logged in if the user and password in a specific row of the database match the ones entered. A session is started when a user logs in, and it is active for as long as the user is logged in.
+### **2️⃣ Login & User Session**
+- Users log in with their **email and password**.
+- The credentials are validated against **MySQL Cloud storage**.
+- **Sessions** are initiated to maintain user login state.
 
-After logging into their account, users are directed to the user settings page. A user can edit their information on the user settings page by filling out the form, which allows them to alter their name, email, and password. New pages appear in the navigation bar on this page, including a logout option that deletes the current session and leads the user to a login page, as well as live fixture and team fixture sites.
+### **3️⃣ User Settings Page**
+- Users can **update their profile information** (name, email, password).
+- The navigation bar updates to show additional options.
+- Users can **log out**, which deletes their session and redirects them to the login page.
 
+### **4️⃣ Live Fixture & Team Fixture Pages**
+- **Team Fixture Page:** Displays upcoming fixtures **for the selected favorite team**.
+- **Live Fixture Page:** Shows live fixtures **for all teams** playing on the current day.
 
-The team fixture page pulls current data from the user's favourite football team drop down. For example, if a user selects Manchester United as their favourite team, the team fixtures page will display all the team's current fixtures. The live fixtures page, on the other hand, does not accept any input arguments and merely outputs the fixtures of any team that is playing on that day.  
+---
 
-Reference [Football API](https://www.api-football.com/)
+## **🛠️ Guide to Run WebApp**
 
-To create a [Docker container](https://docs.github.com/en/github-ae@latest/actions/creating-actions/creating-a-docker-container-action#creating-a-dockerfile)
+### **Running the Web Application Locally (Windows & Ubuntu)**
 
-Google Kubernetes Engine[GKE](https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app)
+### **Windows (Using Visual Studio Code)**
+1️⃣ Open **CMD** in **VS Code Terminal**.
+2️⃣ Activate the virtual environment:
+   ```sh
+   .\env\Scripts\activate
+   ```
+3️⃣ Set the Flask environment:
+   ```sh
+   set FLASK_APP=app.py
+   set FLASK_ENV=development
+   ```
+4️⃣ Run the application:
+   ```sh
+   flask run
+   ```
 
+### **Ubuntu (Using Terminal)**
+1️⃣ Clone the repository:
+   ```sh
+   git clone https://github.com/CameronRobsonLeigh/Football.git
+   ```
+2️⃣ Navigate into the repository:
+   ```sh
+   cd Football/
+   ```
+3️⃣ Create a virtual environment:
+   ```sh
+   python3 -m venv venv
+   ```
+4️⃣ Activate the virtual environment:
+   ```sh
+   source venv/bin/activate
+   ```
+5️⃣ Install dependencies:
+   ```sh
+   pip install -r requirements.txt
+   ```
+6️⃣ Run Flask:
+   ```sh
+   flask run
+   ```
 
+---
+
+## **📜 References**
+- **Football API** - Used to fetch live football fixtures.
+- **Google Kubernetes Engine (GKE)** - Used for deployment.
+
+---
+
+## **📦 Docker & Deployment**
+To create a **Docker container**:
+```sh
+docker build -t football-live-scores .
+docker run -p 5000:5000 football-live-scores
+```
+
+To deploy on **Google Kubernetes Engine (GKE)**:
+```sh
+gcloud container clusters create football-cluster
+gcloud container clusters get-credentials football-cluster
+docker tag football-live-scores gcr.io/YOUR_PROJECT_ID/football-live-scores
+gcloud docker -- push gcr.io/YOUR_PROJECT_ID/football-live-scores
+```
